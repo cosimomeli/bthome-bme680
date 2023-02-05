@@ -3,6 +3,7 @@
 #include <Preferences.h>
 
 #define STATE_SAVE_PERIOD UINT32_C(360 * 60 * 1000) /* 360 minutes - 4 times a day */
+#define TEMPERATURE_OFFSET 2
 
 bsecSensor sensorList[] = {
     BSEC_OUTPUT_RAW_TEMPERATURE,
@@ -151,7 +152,7 @@ void initSensor() {
         checkBsecStatus(envSensor);
     }
 
-    envSensor.setTemperatureOffset(4);
+    envSensor.setTemperatureOffset(TEMPERATURE_OFFSET);
 
     Serial.println("Begin passed");
 
